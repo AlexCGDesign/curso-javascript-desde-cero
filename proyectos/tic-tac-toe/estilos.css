@@ -1,0 +1,189 @@
+*, ::before, ::after{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-players: white;
+    --secondary-color: #FFBF31;
+    --color-board: #F8414E;
+}
+
+body{
+    background-image: url("./assets/bg.svg");
+    background-size: contain;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Tablero de juego */
+
+.game{
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 0;
+    display: grid;
+    align-content: center;
+    gap: 3rem;
+}
+
+/* Mensaje del jugador actual */
+.game__message{
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 1rem 3rem;
+    margin: 0 auto;
+}
+
+/* Estilos del tablero de juego */
+.game__board{
+    background-color: white;
+    outline: #FB7F88 6px dashed;
+
+    position: relative;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    aspect-ratio: 1/1;
+    width: 90%;
+    max-width: 450px;
+
+    display: grid;
+    gap: 2px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+
+.disabled{
+    pointer-events: none;
+}
+
+/* Estilos de las celdas */
+
+.cell{
+    font-size: 3rem;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-board);
+    display: grid;
+    place-items: center;
+    grid-template-areas: "draw";
+    cursor: pointer;
+}
+
+/* Agregamos un borde por cada esquina del tablero */
+
+.cell:nth-child(1){
+    border-top-left-radius: 10px;
+}
+
+.cell:nth-child(3){
+    border-top-right-radius: 10px;
+}
+
+.cell:nth-child(7){
+    border-bottom-left-radius: 10px;
+}
+
+.cell:nth-child(9){
+    border-bottom-right-radius: 10px;
+}
+
+/* Crea un circulo en caso de que agreguemos la clase circulo */
+.circle::after{
+    content: "";
+    grid-area: draw;
+    display: block;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    border: 13px solid var(--color-players);
+    animation: show .3s;
+}
+
+/* Agrega una equis en caso de que agreguemos la clase cross */
+.cross::after{
+    content: "";
+    grid-area: draw;
+    display: block;
+    width: 13px;
+    height: 70%;
+    background-color: var(--color-players);
+    transform: rotate(45deg);
+    border-radius: 10px;
+    animation: show-reverse .3s;
+}
+
+.cross::before{
+    content: "";
+    grid-area: draw;
+    display: block;
+    width: 13px;
+    height: 70%;
+    background-color: var(--color-players);
+    transform: rotate(-45deg);
+    border-radius: 10px;
+    animation: show .3s;
+}
+
+/* Muestra la pantalla final */
+.endgame{
+    background-color: #000000bc;
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    transition: clip-path 1s ease-in-out;
+
+    display: grid;
+    place-content: center;
+    color: #fff;
+}
+
+.endgame__result{
+    font-size: 3rem;
+}
+
+.show{
+    clip-path: polygon(-50% 50%, 50% -50%, 150% 50%, 50% 150%);
+}
+
+.endgame__show{
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+}
+
+.endgame__button{
+    background-color: var(--secondary-color);
+    color: black;
+    font: inherit;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+    width: max-content;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+
+/* Animaciones al tablero */
+@keyframes show {
+    0%{
+        transform: scale(0) rotate(-45deg);
+    }
+    100%{
+        transform: scale(1) rotate(-45deg);
+    }
+}
+
+@keyframes show-reverse {
+    0%{
+        transform: scale(0) rotate(45deg);
+    }
+    100%{
+        transform: scale(1) rotate(45deg);
+    }
+}

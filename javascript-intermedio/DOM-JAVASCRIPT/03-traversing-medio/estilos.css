@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+.contenedor{
+    width: 90%;
+    margin: 0 auto;
+    padding: 4rem 0;
+    text-align: center;
+
+    display: grid;
+    gap: 2rem;
+    place-items: center;
+}
+
+.small{
+    font-size: .8rem;
+    color: seagreen;
+}
+
+#titulo-principal{
+    font-size: 2.5rem;
+}
+
+.img{
+    width: 140px;
+    filter: drop-shadow( 0 0 6px black);
+}
+
+.input-activo{
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background-image: url("../assets/js.svg");
+    background-size: cover;
+}

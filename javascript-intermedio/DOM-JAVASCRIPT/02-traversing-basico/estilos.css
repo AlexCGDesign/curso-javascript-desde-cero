@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+.contenedor{
+    width: 90%;
+    margin: 0 auto;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.titulo{
+    margin-bottom: 4rem;
+}
+
+.img{
+    width: 100px;
+    filter: drop-shadow( 0 0 6px black);
+}
+
+.list{
+    display: grid;
+    gap: 1.2rem;
+    margin-top: 2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.item{
+    font-weight: 300;
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+.footer{
+    font-weight: 700;
+    font-size: 2rem;
+    margin-top: 4rem;
+}

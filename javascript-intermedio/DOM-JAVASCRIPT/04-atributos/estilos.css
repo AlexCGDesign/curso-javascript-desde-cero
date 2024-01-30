@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+.contenedor{
+    width: 90%;
+    margin: 0 auto;
+    padding: 4rem 0;
+    text-align: center;
+
+    display: grid;
+    gap: 2rem;
+    place-items: center;
+}
+
+.titulo{
+    font-size: 2.5rem;
+}
+
+.seagreen{
+    color: seagreen;
+}
+
+
+.img{
+    width: 140px;
+    filter: drop-shadow( 0 0 6px black);
+}
+
+.cta{
+    display: inline-block;
+    padding: 1.3rem 1.5rem;
+    border-radius: 10px;
+
+    background-color: seagreen;
+    color: white;
+    text-decoration: none;
+}

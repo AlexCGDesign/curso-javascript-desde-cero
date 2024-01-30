@@ -1,0 +1,305 @@
+/* Estilos generales */ 
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --btn-color: #3B40D5;
+}
+
+body{
+    font-family: 'DM Sans', sans-serif;
+    background-color: #fff;
+}
+
+input, label, button{
+    font: inherit;
+}
+
+.app{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.app__header{
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.app__actions{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.title{
+    font-size: 2.5rem;
+    margin-bottom: 1.4rem;
+}
+
+.btn{
+    background-color: var(--btn-color);
+    color: white;
+    padding: .3rem 1rem;
+    border: none;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+    cursor: pointer;
+
+    transition: transform .3s;
+}
+
+.btn--form{
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+}
+
+.btn--outline{
+    background-color: white;
+    border: 1px solid #ccc;
+    color: black;
+}
+
+.btn:active{
+    transform: scale(1.02);
+}
+
+/* Sección Tareas */
+
+.tasks{
+    margin: 60px 0;
+    display: grid;
+    gap: 1rem;
+
+    --complete: flex;
+    --incomplete: flex;
+}
+
+.tasks--complete{
+    --complete: flex;
+    --incomplete: none;
+}
+
+.tasks--incomplete{
+    --complete: none;
+    --incomplete: flex;
+}
+
+.tasks__item{
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 4px #ddd;
+    background-color: #fff;
+
+    align-items: center;
+    gap: 1rem;
+    
+    width: 90%;
+    max-width: 500px;
+
+    transition: background-color .2s;
+
+    animation: show 1s .1s both;
+}
+
+.tasks__item--fade{
+    animation: fade .2s forwards;
+}
+
+.tasks__checked, .filter__input{
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+
+    display: flex;
+
+    --checked: 0;
+}
+
+:is(.tasks__checked, .filter__input):checked{
+    background-color: #3b40d5a7;
+    --checked: 1;
+}
+
+:is(.tasks__checked, .filter__input)::after{
+    content: "";
+    width: 80%;
+    height: 80%;
+    background-image: url("./assets/check.svg");
+    background-size: cover;
+    margin: auto;
+    opacity: var(--checked);
+    transition: opacity .3s;
+}
+
+.tasks__name{
+    color: var(--color-task);
+    font-weight: bold;
+    text-decoration: var(--text-decoration);
+}
+
+.close{
+    background-color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.close__img{
+    width: 100%;
+    height: 100%;
+}
+
+.close--task{
+    margin-left: auto;
+}
+
+[data-state="incomplete"]{
+    --color-task: #000;     
+    --text-decoration: none;
+
+    display: var(--incomplete);   
+}
+
+[data-state="complete"]{
+    background-color: #fafafa;
+    --color-task: #8f8c8c;     
+    --text-decoration: line-through;
+
+    display: var(--complete);   
+}
+
+/* Modal */
+
+.modal{
+    inset: 0;
+    margin: auto;
+}
+
+.modal[open]{
+    animation: show .8s ease-in forwards;
+}
+
+::backdrop{
+    background-color: rgb(0, 0, 0, .4);
+}
+
+:modal{
+    border: none;
+    border-radius: 10px;
+}
+
+.modal__form{
+    padding: 2.5rem 2rem;
+}
+
+.modal__title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal__position{
+    display: grid;
+    margin-top: 2rem;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal__task{
+    grid-column: 1/-1;
+    padding: .6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #F6FAFD;
+}
+
+/* Filtrado */
+
+.app__filter{
+    position: relative;
+    width: max-content;
+    height: max-content;
+}
+
+.filter{
+    opacity: 0;
+    pointer-events: none;
+
+    position: absolute;
+    top: 40px;
+    left: 3px;
+
+    display: grid;
+    gap: 1rem;
+
+    background-color: white;
+    box-shadow: 0 0 2px rgb(0, 0, 0, .6);
+    padding: 1.8rem 2.5rem;
+    width: max-content;
+    border-radius: 5px;
+    z-index: 100;
+
+    transition: opacity .3s;
+}
+
+.filter--show{
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.filter__option{
+    display: flex;
+    gap: 1rem;
+}
+
+@media (width < 600px) {
+    
+    .app__actions{
+        flex-direction: column;
+    }
+
+    .app__actions > *{
+        width: max-content;
+    }
+
+}
+
+
+@keyframes show {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fade{
+    0%{
+        transform: translateY(0);
+    }
+
+    100%{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}

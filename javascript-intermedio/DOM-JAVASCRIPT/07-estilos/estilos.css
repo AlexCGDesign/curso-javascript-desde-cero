@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: white;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.contenedor{
+    width: 90% !important;
+    margin: 50px auto;
+    padding: 4rem 0;
+    text-align: center;
+
+    display: grid;
+    gap: 2rem;
+    place-items: center;
+
+}
+
+
+.titulo{
+    font-size: 2.5rem;
+    color: royalblue;
+}
+
+.titulo::after{
+    content: "Hola";
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    height: 7px;
+    background-color: royalblue;
+}
+
+.titulo:hover{
+    color: darkblue;
+}
+
+@media (min-width:800px){
+    body{
+        background-color: #e5fefe;
+        border:5px solid royalblue;
+        min-height: 100vh;
+    }
+}
+
+@keyframes show {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

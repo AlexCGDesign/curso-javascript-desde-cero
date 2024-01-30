@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Tareas</title>
+    <link rel="stylesheet" href="./estilos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,500;9..40,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="app">
+
+       <header class="app__header">
+            <h1 class="title">Todo List App</h1>
+
+            <div class="app__actions">
+
+                <button class="btn" id="add-task">
+
+                    <img src="./assets/plus.svg" class="btn__image">
+                    Agregar Tarea
+                </button>
+
+                <div class="app__filter">
+
+                    <button class="btn btn--outline" id="button-tooltip">
+
+                        <img src="./assets/filter.svg" class="btn__image">
+                        Filtros
+
+                    </button>
+
+                    <!-- Formulario de filtrado -->
+                    <form id="filter" class="filter">
+
+
+                        <!-- Input para todas las tareas -->
+                        <div class="filter__option">
+                            <input type="radio" name="filter" id="all" class="filter__input" value="all" checked>
+
+                            <label for="all">Todas las tareas</label>
+                        </div>
+
+                        <!-- Input para las tareas pendientes -->
+                        <div  class="filter__option">
+
+                            <input type="radio" name="filter" id="pending" class="filter__input" value="pending">
+
+                            <label for="pending">Tareas Pendientes</label>
+                        </div>
+
+                         <!-- Input para las tareas completadas -->
+                         <div  class="filter__option">
+
+                            <input type="radio" name="filter" id="done" class="filter__input" value="done">
+
+                            <label for="done"> Tareas Hechas</label>
+                        </div>
+
+
+                        <button type="submit" class="btn btn--form">Filtrar</button>
+                    </form>
+                    
+                </div>
+
+            </div>
+
+       </header>
+
+
+       <ul class="tasks" id="task-container">
+
+           <template id="template-task">
+                <li class="tasks__item" data-state="incomplete" >
+
+                    <input type="checkbox" class="tasks__checked" >
+
+                    <p class="tasks__name">Tarea</p>
+
+                    <button class="close close--task">
+                        <img src="./assets/close-task.svg" class="close__img">
+                    </button>
+
+                </li>
+           </template> 
+
+       </ul>
+
+       <!-- Modal que agregue las tareas -->
+
+       <dialog class="modal" id="modal-form">
+
+            <form class="modal__form" id="form-task">
+                <h2 class="modal__title">
+                    Agrega una tarea
+
+                    <button class="close" id="close-modal" type="button">
+                        <img src="./assets/close.svg" class="close__img">
+                    </button>
+                </h2>
+
+                <!-- Contenido del modal -->
+                
+                <div class="modal__position">
+                    <input type="text" placeholder="Ingresa tu tarea" id="task-input" class="modal__task">
+
+
+                    <button class="btn btn--form" type="submit">Agregar Tarea</button>
+
+                    <button type="reset" class="btn btn--form btn--outline">Reiniciar Formulario</button>
+                </div>
+            </form>
+
+       </dialog>
+
+
+    </main>
+
+    <script src="./app.js"></script>
+    
+</body>
+</html>

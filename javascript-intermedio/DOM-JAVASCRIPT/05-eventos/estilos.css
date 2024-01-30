@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+.contenedor{
+    width: 90%;
+    margin: 50px auto;
+    padding: 4rem 0;
+    text-align: center;
+
+    display: grid;
+    gap: 2rem;
+    place-items: center;
+
+    color: white;
+    background-color: slateblue;
+}
+
+.titulo{
+    font-size: 2.5rem;
+}
+
+.btn:first-of-type{
+    background-color: white;
+    color: black;
+    margin-bottom: 4rem;
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: black;
+    color: white;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+.form{
+    display: grid;
+    gap: 1rem;
+}
+
+input[type="text"]{
+    padding: 1rem;
+    border: none;
+    border-radius: 3px;
+    font: inherit;
+}
+
+a{
+    color: white;
+}

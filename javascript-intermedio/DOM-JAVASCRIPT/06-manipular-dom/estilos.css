@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+.contenedor{
+    width: 90%;
+    margin: 50px auto;
+    padding: 4rem 0;
+    text-align: center;
+
+    display: grid;
+    gap: 2rem;
+    place-items: center;
+
+}
+
+.titulo{
+    font-size: 2.5rem;
+}
+
+.clase1{
+    color: seagreen;
+}
+
+.notification{   
+    color: white;
+    padding: 1.5rem 5rem;
+    width: max-content;
+    margin: 40px auto;
+    border-radius: 10px;
+}
+
+.success{
+    background-color: darkgreen;
+}
+
+.error::after{
+    content: "Error";
+}
+
+.success::after{
+    content: "Éxito";
+}
+
+.error{
+    background-color: crimson;
+}
+
+

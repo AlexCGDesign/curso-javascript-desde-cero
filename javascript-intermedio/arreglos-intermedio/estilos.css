@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 80px;
+}
+ 
+.title{
+    font-size: 3rem;
+}
+
+.copy{
+    font-size: 1.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 8px solid #bbbb0d;
+}

@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+.contenedor{
+    width: 90%;
+    margin: 50px auto;
+    padding: 4rem 0;
+    text-align: center;
+
+    display: grid;
+    gap: 2rem;
+    place-items: center;
+
+    color: white;
+    background-color: slateblue;
+    
+}
+
+.titulo{
+    font-size: 2.5rem;
+}
+
+section{
+    margin: 3rem;
+    background-color: red;
+    padding: 3rem;
+    color: white ;
+    text-align: center;
+
+}
+
+button{
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
